@@ -1,0 +1,11 @@
+photo or video to ascii
+  - compress the frame to fewer pixels by iterating the pixels by taking average of certain block of the frame
+  - iterate through the compressed frame and convert it to a ascii character
+  
+char convertToChar(uint_t pixel) {
+  char[] table = " .:a@#";
+  size_t n = sizeof(table) - 1;
+  int index = (((0xFF000000&pixel)>>8*3))*n/256;
+  return table[index];
+}
+
